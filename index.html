@@ -4,6 +4,38 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta name="theme-color" content="#080d1e"><meta name="description" content="Echo Run 回声猎手：纯静态霓虹无限生存游戏。">
 <title>ECHO RUN v4 · 战术突围</title><style>:root{color-scheme:dark;--cyan:#65ffe0;--pink:#fc64ba;--ink:#080d1e;--muted:#96a6c6}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--ink);color:#eef5ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overscroll-behavior:none}button{font:inherit;color:inherit;border:1px solid #38506a;background:#152039;border-radius:13px;padding:14px 20px;cursor:pointer;transition:background .15s,transform .15s;touch-action:manipulation}button:hover{background:#253957}button:active{transform:scale(.98)}button:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}button:disabled{opacity:.5;cursor:default}.primary{background:var(--cyan);border-color:var(--cyan);color:#082421;font-weight:800;box-shadow:0 4px 35px #65ffe01c}.primary:hover{background:#9affec}.primary b{float:right}canvas{display:block;position:fixed;inset:0;width:100%;height:100%;touch-action:none}.hidden{display:none!important}#overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#040916a6;backdrop-filter:blur(9px);padding:20px;padding-top:max(20px,env(safe-area-inset-top));padding-bottom:max(20px,env(safe-area-inset-bottom));overflow-y:auto}.panel{width:min(100%,470px);padding:32px;border:1px solid #65ffe035;border-radius:24px;background:linear-gradient(145deg,#152038f5,#0c1124fa);box-shadow:0 30px 100px #0009;max-height:100%;overflow-y:auto}.panel>button{display:block;width:100%;margin-top:12px}.eyebrow{color:var(--cyan);font-size:10px;letter-spacing:3px;font-weight:800}h1{font-size:clamp(45px,10vw,67px);letter-spacing:-5px;line-height:1;margin:23px 0 12px;font-style:italic}h1 span,.brand span{color:var(--cyan)}h2{font-size:30px;letter-spacing:-1px}p{line-height:1.7;color:var(--muted);font-size:13px}.subtitle{margin-bottom:24px}.feature-row{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.feature-row span{border:1px solid #65ffe025;border-radius:8px;font-size:11px;padding:7px 9px;color:#c1d9e6}.help{font-size:11px;margin:20px 0}#dailyButton small{color:var(--muted);padding-left:8px}.leaderboard{border-top:1px solid #ffffff12;margin-top:20px;padding-top:10px}h3{font-size:12px}h3 span{font-weight:400;color:var(--muted);font-size:10px;float:right}ol{padding-left:22px;font-size:12px;color:var(--muted)}li{padding:5px 0}li strong{color:var(--cyan);float:right}#storageHint{font-size:10px;color:#d4a5a8}#hud{position:fixed;top:0;left:0;right:0;padding:max(16px,env(safe-area-inset-top)) 20px 15px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:linear-gradient(#080d1ef5,#080d1e00);pointer-events:none}#hud button{pointer-events:auto}.brand{font-size:20px;letter-spacing:-1px;font-weight:900;font-style:italic}.brand small{display:block;font-size:9px;color:var(--muted);letter-spacing:1px;font-style:normal;font-weight:400}.stats{display:flex;gap:14px;align-items:center;flex:1;font-size:12px;justify-content:flex-end}.stats strong{color:var(--cyan)}.icon{padding:8px 13px}.meters{width:100%;display:flex;gap:12px;max-width:530px}.meter{height:16px;position:relative;border-radius:5px;overflow:hidden;background:#192238;border:1px solid #ffffff15;flex:1}.meter i{display:block;height:100%;background:linear-gradient(90deg,#f36aa6,#ffacbc);width:100%;transition:width .1s}.meter span{position:absolute;inset:0;text-align:center;font-size:9px;font-weight:bold;text-shadow:0 1px 3px #000}.meter.xp i{background:linear-gradient(90deg,#268eaa,#65ffe0);width:0}#toast{position:fixed;top:125px;left:50%;transform:translateX(-50%);background:#102635dd;border:1px solid #65ffe060;border-radius:12px;padding:10px 18px;opacity:0;transition:opacity .25s;pointer-events:none;text-align:center;min-width:220px;font-size:12px}#toast.show{opacity:1}#eventHint{position:fixed;top:175px;left:0;right:0;text-align:center;color:#ffda87;font-size:12px;pointer-events:none}#controls{position:fixed;inset:0;pointer-events:none}#joystick{position:absolute;left:max(25px,env(safe-area-inset-left));bottom:max(32px,env(safe-area-inset-bottom));width:118px;height:118px;border-radius:50%;background:#65ffe009;border:1px solid #65ffe040;pointer-events:auto;touch-action:none}#stick{position:absolute;left:38px;top:38px;width:40px;height:40px;border:1px solid #65ffe090;border-radius:50%;background:#65ffe030;box-shadow:0 0 25px #65ffe018;pointer-events:none}#dashButton{position:absolute;right:max(28px,env(safe-area-inset-right));bottom:max(44px,env(safe-area-inset-bottom));width:86px;height:86px;border-radius:50%;font-size:29px;border:1px solid var(--cyan);color:var(--cyan);background:#112839c9;pointer-events:auto;touch-action:none}#dashButton small{display:block;font-size:10px}.wide{width:min(820px,100%)}#upgradeChoices{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}.upgrade{text-align:left;min-height:180px;padding:20px 15px;background:#142638;border-color:#65ffe040}.upgrade em{display:block;font-size:30px;font-style:normal;margin-bottom:18px;color:var(--cyan)}.upgrade strong{display:block;font-size:17px}.upgrade small{display:block;color:var(--muted);font-size:12px;line-height:1.6;margin-top:10px}#endStats{background:#65ffe008;border:1px solid #65ffe020;border-radius:14px;padding:20px;margin:20px 0;font-size:14px;line-height:2}#endStats strong{font-size:32px;color:var(--cyan)}#footer{position:fixed;bottom:9px;left:0;right:0;text-align:center;letter-spacing:2px;color:#687993;font-size:8px;pointer-events:none}@media(max-width:560px){.panel{padding:24px;border-radius:20px}#hud{padding-left:12px;padding-right:12px;gap:10px}.brand{font-size:17px}.stats{gap:9px;font-size:10px}#upgradeChoices{grid-template-columns:1fr;gap:8px;margin-top:15px}.upgrade{min-height:0;padding:14px 16px}.upgrade em{float:left;font-size:24px;margin:0 15px 0 0}.upgrade strong{font-size:15px}.upgrade small{margin-top:4px;font-size:11px}.panel h2{margin:16px 0}.wide>p{font-size:11px}#joystick{width:106px;height:106px}#stick{left:32px;top:32px}}@media(pointer:fine){#joystick{opacity:.35}#dashButton{opacity:.65}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ===== 关于开发者 / 打赏 / 玩法共建 ===== */
+#aboutPanel{padding:26px}#aboutPanel h2{margin:6px 0 4px}
+.abt-tabs{display:flex;gap:8px;margin:16px 0 0}
+.abt-tab{flex:1;padding:10px 4px;font-size:12px;border-radius:11px;border:1px solid #65ffe030;background:#0f1a2c;color:var(--muted);margin:0!important}
+.abt-tab.on{color:#082421;background:var(--cyan);border-color:var(--cyan);font-weight:800}
+.abt-pane{display:none;margin-top:16px}
+.abt-pane.on{display:block}
+.abt-hero{display:flex;align-items:center;gap:13px}
+.abt-ava{width:52px;height:52px;flex-shrink:0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;background:#65ffe014;border:1px solid #65ffe040}
+.abt-hero h3{font-size:17px;margin:0}.abt-hero small{font-size:11px;color:var(--muted);display:block;margin-top:3px}
+.abt-text{font-size:12.5px;line-height:1.85;color:#c1d9e6;margin:12px 0 0}
+.abt-text em{font-style:normal;color:var(--cyan)}
+.abt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+.abt-card{border:1px solid #65ffe025;border-radius:12px;background:#142638;padding:12px}
+.abt-card b{display:block;font-size:12px;color:var(--cyan);margin-bottom:6px}
+.abt-card span{font-size:11px;line-height:1.65;color:var(--muted)}
+.abt-note{margin-top:14px;border:1px solid #ffda8740;border-radius:12px;background:#ffda870d;padding:12px 14px;font-size:12px;line-height:1.8;color:#e7d6b4}
+.abt-note b{color:#ffda87}
+.abt-crow{display:flex;align-items:center;gap:10px;border:1px solid #65ffe020;border-radius:11px;background:#0f1a2c;padding:10px 12px;margin-top:8px;font-size:12.5px}
+.abt-crow .k{color:var(--muted);font-size:11px;width:46px;flex-shrink:0}
+.abt-crow a{color:var(--cyan);text-decoration:none;word-break:break-all}
+.abt-qr{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:16px}
+.abt-qr img{width:min(250px,70vw);height:auto;border-radius:12px;background:#fff;padding:6px;border:1px solid #65ffe035}
+.abt-qr small{font-size:11px;color:var(--muted)}
+.abt-step{display:flex;gap:10px;border:1px solid #65ffe020;border-radius:12px;background:#142638;padding:11px 13px;margin-top:8px}
+.abt-step .n{width:22px;height:22px;flex-shrink:0;border-radius:50%;background:#65ffe01a;color:var(--cyan);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;border:1px solid #65ffe040}
+.abt-step b{display:block;font-size:12.5px;margin-bottom:3px}
+.abt-step span{font-size:11.5px;line-height:1.65;color:var(--muted)}
+.abt-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.abt-actions button,.abt-actions a{padding:10px 14px;font-size:12px;border-radius:11px;margin:0!important;width:auto;display:inline-flex;align-items:center;text-decoration:none;border:1px solid #65ffe040;background:#152039;color:#eef5ff}
+#aboutPanel>button{margin-top:18px}
+@media(max-width:560px){#aboutPanel{padding:22px 18px}.abt-grid{grid-template-columns:1fr}.abt-tab{font-size:11px;padding:9px 2px}.abt-hero h3{font-size:15px}}
 </style>
 </head>
 <body>
@@ -13,10 +45,60 @@
 <div id="eventHint"></div>
 <div id="controls" class="hidden"><div id="joystick" aria-label="触摸移动摇杆"><div id="stick"></div></div><button id="dashButton" aria-label="冲刺">↗<small>冲刺</small></button></div>
 <div id="overlay">
-<section id="menu" class="panel"><div class="eyebrow">NEON SURVIVAL / 无限生存</div><h1>ECHO<span>RUN</span></h1><p class="subtitle">v4 战术突围 · 看清预警，选择目标，冒险争夺。</p><div class="feature-row"><span>自动锁敌</span><span>无限进化</span><span>每 5 波精英 · 每 10 波 BOSS</span></div><button id="startButton" class="primary">开始自由生存 <b>→</b></button><button id="dailyButton">每日固定种子 <small id="dailyDate"></small></button><p class="help">桌面 WASD / 方向键移动 · 空格冲刺（带无敌帧）· P / Esc 暂停<br>手机左摇杆移动 · 右侧冲刺 · 靠近晶体获取经验<br>狙击虚线锁定后有 0.8 秒闪避；橙色分裂兵死亡后生成小怪。<br>金圈内占领 3 秒获得经验和分数，不回血；离开会衰减。<br>第 4 波起可能出现蜂群、重装、狙击、分裂波。回血稀缺，靠走位与冲刺生存。</p><div class="leaderboard"><h3>本机最高分榜 <span>非全球 · 仅此浏览器</span></h3><ol id="scores"></ol><p id="storageHint"></p></div></section>
+<section id="menu" class="panel"><div class="eyebrow">NEON SURVIVAL / 无限生存</div><h1>ECHO<span>RUN</span></h1><p class="subtitle">v4 战术突围 · 看清预警，选择目标，冒险争夺。</p><div class="feature-row"><span>自动锁敌</span><span>无限进化</span><span>每 5 波精英 · 每 10 波 BOSS</span></div><button id="startButton" class="primary">开始自由生存 <b>→</b></button><button id="dailyButton">每日固定种子 <small id="dailyDate"></small></button><p class="help">桌面 WASD / 方向键移动 · 空格冲刺（带无敌帧）· P / Esc 暂停<br>手机左摇杆移动 · 右侧冲刺 · 靠近晶体获取经验<br>狙击虚线锁定后有 0.8 秒闪避；橙色分裂兵死亡后生成小怪。<br>金圈内占领 3 秒获得经验和分数，不回血；离开会衰减。<br>第 4 波起可能出现蜂群、重装、狙击、分裂波。回血稀缺，靠走位与冲刺生存。</p><button id="aboutButton">🏮 关于开发者 · 打赏 · 玩法共建</button><div class="leaderboard"><h3>本机最高分榜 <span>非全球 · 仅此浏览器</span></h3><ol id="scores"></ol><p id="storageHint"></p></div></section>
 <section id="pausePanel" class="panel hidden"><div class="eyebrow">SIGNAL HELD</div><h2>暂时离线</h2><p>战场已暂停，喘口气再回来。</p><button id="resumeButton" class="primary">继续生存</button><button id="restartPause">重新开始本模式</button><button id="homePause">返回主菜单</button></section>
 <section id="upgradePanel" class="panel wide hidden"><div class="eyebrow">EVOLUTION AVAILABLE</div><h2>选择你的进化</h2><p>战场暂停中 · 三选一 · 数字键 1 / 2 / 3</p><div id="upgradeChoices"></div></section>
-<section id="endPanel" class="panel hidden"><div class="eyebrow">SIGNAL LOST</div><h2>回声仍在继续</h2><div id="endStats"></div><button id="restartEnd" class="primary">再来一局</button><button id="homeEnd">返回主菜单 / 本机榜</button></section>
+<section id="endPanel" class="panel hidden"><div class="eyebrow">SIGNAL LOST</div><h2>回声仍在继续</h2><div id="endStats"></div><button id="restartEnd" class="primary">再来一局</button><button id="homeEnd">返回主菜单 / 本机榜</button><button id="aboutEnd">🏮 关于开发者 · 打赏 · 玩法共建</button>
+<section id="aboutPanel" class="panel wide hidden">
+  <div class="eyebrow">ABOUT · SUPPORT · CO-BUILD</div>
+  <h2>关于开发者</h2>
+  <div class="abt-tabs">
+    <button class="abt-tab on" data-atab="dev">关于开发者</button>
+    <button class="abt-tab" data-atab="donate">打赏开发者</button>
+    <button class="abt-tab" data-atab="build">玩法共建</button>
+  </div>
+
+  <div class="abt-pane on" data-apane="dev">
+    <div class="abt-hero"><div class="abt-ava">🏮</div><div><h3>阿z的知识讲堂</h3><small>B 站 UP 主 · 独立开发者 · 数学 / 物理 / AI</small></div></div>
+    <p class="abt-text">白天想公式，晚上写代码。Echo Run、浮生角色馆、知弧、Principia 都是我一个人在业余时间做出来的小东西：<em>不接广告、不做充值、不上传你的存档</em>。玩得爽就多玩两局，玩得不爽也欢迎来骂两句。</p>
+    <div class="abt-grid">
+      <div class="abt-card"><b>∑ 热爱数学</b><span>相信每个公式背后都有值得讲述的故事。</span></div>
+      <div class="abt-card"><b>⚛ 热爱物理</b><span>痴迷用最简洁的原理描述最复杂的现象。</span></div>
+      <div class="abt-card"><b>◈ 热爱游戏</b><span>一个人从零写完这个能在地铁上玩的霓虹生存。</span></div>
+    </div>
+    <div class="abt-note"><b>我的心愿：免费的关注，就是最大的鼓励。</b>如果这一局陪你熬过了加班后的十分钟，去 B 站点个关注就好；想打赏的话量力而行——喜欢白嫖，开发者也完全不介意。</div>
+    <div class="abt-crow"><span class="k">B 站</span><span>阿z的知识讲堂</span></div>
+    <div class="abt-crow"><span class="k">微信</span><span>见「玩法共建」页二维码</span></div>
+    <div class="abt-crow"><span class="k">GitHub</span><a href="https://github.com/azdezhishijiangtang" target="_blank" rel="noopener">github.com/azdezhishijiangtang</a></div>
+    <div class="abt-actions"><button data-atab="donate">打赏开发者</button><button data-atab="build">玩法共建</button></div>
+  </div>
+
+  <div class="abt-pane" data-apane="donate">
+    <p class="abt-text">创作不易。如果这个游戏真的陪你熬过几个深夜，可以根据自身情况打赏——每一笔心意都会变成下一次更新的理由。</p>
+    <div class="abt-qr"><img src="images/donate-code.png" alt="开发者赞赏码" loading="eager"><small>扫码打赏 · 金额随意</small></div>
+    <div class="abt-grid">
+      <div class="abt-card"><b>完全自愿</b><span>打不打赏、打多少，完全由你决定，请量力而行。</span></div>
+      <div class="abt-card"><b>白嫖也没关系</b><span>打赏不解锁任何内容，所有玩法对所有人一样免费。</span></div>
+      <div class="abt-card"><b>关注也是支持</b><span>去 B 站关注「阿z的知识讲堂」，免费的关注同样算数。</span></div>
+    </div>
+    <div class="abt-note">没有充值、没有皮肤、没有广告位。存档只在你自己的浏览器里，开发者看不到。</div>
+    <div class="abt-actions"><button data-atab="dev">了解开发者</button><button data-atab="build">玩法共建</button></div>
+  </div>
+
+  <div class="abt-pane" data-apane="build">
+    <p class="abt-text">你想在这个游戏里玩到什么？新武器、新进化、新 Boss 机制、新地图主题、每日挑战规则、难度曲线……<em>只要有想法就来跟我聊</em>，一起把它做出来，署上你的名字，让所有玩家都玩得到。</p>
+    <div class="abt-step"><span class="n">1</span><div><b>提出想法</b><span>扫码加微信，备注「玩法共建」，一句话说清想要什么、为什么想要。</span></div></div>
+    <div class="abt-step"><span class="n">2</span><div><b>评估可行性</b><span>我看技术难度、和现有平衡会不会打架、大概要多久，评估阶段完全免费。</span></div></div>
+    <div class="abt-step"><span class="n">3</span><div><b>一起打磨</b><span>达成一致后开工，中途给你试玩、按你的反馈调数值，直到你也满意。</span></div></div>
+    <div class="abt-step"><span class="n">4</span><div><b>上架共建</b><span>做好的玩法上线本站，标记为「共建玩法」，署你的名字（也可以匿名）。</span></div></div>
+    <div class="abt-qr"><img src="images/wechat-qr.png" alt="开发者微信二维码" loading="eager"><small>扫码加我微信 · 备注「玩法共建」</small></div>
+    <div class="abt-note">被采纳的点子免费开放给所有玩家，这就是「共建」；大改版级定制属于个人技术服务，费用单独沟通。不接涉政涉黄、破坏平衡与侵权素材的需求。</div>
+    <div class="abt-actions"><a href="https://github.com/azdezhishijiangtang/echo-run/issues" target="_blank" rel="noopener">去 GitHub 提需求</a><button data-atab="dev">了解开发者</button></div>
+  </div>
+
+  <button id="aboutBack">← 返回</button>
+</section>
+
 </div>
 <footer id="footer">OFFLINE READY · NO ADS · NO GLOBAL RANKING</footer>
 <script>(() => {
@@ -56,7 +138,7 @@ const upgrades=[
 ];
 function resize(){width=innerWidth||document.documentElement.clientWidth||document.body.clientWidth||1280;height=innerHeight||document.documentElement.clientHeight||document.body.clientHeight||720;const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);scale=clamp(Math.min(width/850,height/650),.64,1.25);}
 function resetInput(){keys.clear();joy.x=joy.y=0;joy.id=null;$('stick').style.transform='translate(0px,0px)';}
-function panel(name){$('overlay').classList.toggle('hidden',!name);for(const id of ['menu','pausePanel','upgradePanel','endPanel'])$(id).classList.toggle('hidden',id!==name);$('footer').classList.toggle('hidden',name!=='menu');}
+function panel(name){$('overlay').classList.toggle('hidden',!name);for(const id of ['menu','pausePanel','upgradePanel','endPanel','aboutPanel'])$(id).classList.toggle('hidden',id!==name);$('footer').classList.toggle('hidden',name!=='menu');}
 function notify(text){$('toast').textContent=text;$('toast').classList.add('show');toastTimer=3;}
 function circleRect(x,y,r,o){return Math.hypot(x-clamp(x,o.x,o.x+o.w),y-clamp(y,o.y,o.y+o.h))<r;}
 function clearAt(x,y,r){return x>=r&&y>=r&&x<=WORLD.w-r&&y<=WORLD.h-r&&!game.obstacles.some(o=>circleRect(x,y,r+5,o));}
@@ -202,6 +284,12 @@ function render(){ctx.clearRect(0,0,width,height);ctx.fillStyle='#080d1e';ctx.fi
  for(const b of game.bullets){if(!visible(b))continue;ctx.strokeStyle=b.hostile?'#fc64ba':'#65ffe0';ctx.lineWidth=b.hostile?4:3;ctx.beginPath();ctx.moveTo(b.x-b.vx*.014,b.y-b.vy*.014);ctx.lineTo(b.x,b.y);ctx.stroke();circle(b.x,b.y,b.hostile?4:3,b.hostile?'#ff98cb':'#efffff');}
  const p=game.p;ctx.save();ctx.translate(p.x,p.y);circle(0,0,24,'#65ffe00b','#65ffe028');if(!(p.inv>0&&Math.floor(game.time*18)%2)){ctx.rotate(Math.atan2(p.dy,p.dx));ctx.shadowBlur=18;ctx.shadowColor='#65ffe0';ctx.fillStyle='#c8fff3';ctx.strokeStyle='#65ffe0';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(18,0);ctx.lineTo(-11,-11);ctx.lineTo(-6,0);ctx.lineTo(-11,11);ctx.closePath();ctx.fill();ctx.stroke();ctx.shadowBlur=0;}ctx.restore();for(const q of game.particles){ctx.globalAlpha=Math.min(1,q.life*3);circle(q.x,q.y,2,q.color);}ctx.globalAlpha=1;ctx.restore();}
 function frame(now){const dt=Math.min(.033,Math.max(0,(now-last)/1000||0));last=now;if(toastTimer>0){toastTimer-=dt;if(toastTimer<=0)$('toast').classList.remove('show');}update(dt);render();requestAnimationFrame(frame);}
+let aboutReturn='menu';function aboutTab(n){for(const b of document.querySelectorAll('#aboutPanel .abt-tab'))b.classList.toggle('on',b.dataset.atab===n);for(const p of document.querySelectorAll('#aboutPanel .abt-pane'))p.classList.toggle('on',p.dataset.apane===n);$('aboutPanel').scrollTop=0;}
+function openAbout(){aboutTab('dev');aboutReturn=state==='paused'?'pausePanel':state==='ended'?'endPanel':'menu';panel('aboutPanel');}
+$('aboutButton').onclick=openAbout;
+$('aboutEnd').onclick=openAbout;
+$('aboutBack').onclick=()=>{if(aboutReturn==='pausePanel'||aboutReturn==='endPanel')panel(aboutReturn);else panel('menu');};
+$('aboutPanel').addEventListener('click',e=>{const b=e.target.closest('[data-atab]');if(b)aboutTab(b.dataset.atab);});
 $('startButton').onclick=()=>start('free');$('dailyButton').onclick=()=>start('daily');$('pauseButton').onclick=pause;$('resumeButton').onclick=resume;$('restartPause').onclick=()=>start();$('restartEnd').onclick=()=>start();$('homePause').onclick=home;$('homeEnd').onclick=home;
 $('dashButton').addEventListener('pointerdown',e=>{e.preventDefault();dash();});
 const joystick=$('joystick');function joyMove(e){if(e.pointerId!==joy.id)return;const r=joystick.getBoundingClientRect(),dx=e.clientX-r.left-r.width/2,dy=e.clientY-r.top-r.height/2,len=Math.hypot(dx,dy),max=35;joy.x=dx/Math.max(max,len);joy.y=dy/Math.max(max,len);$('stick').style.transform=`translate(${joy.x*max}px,${joy.y*max}px)`;}
