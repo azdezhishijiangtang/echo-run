@@ -22,6 +22,11 @@
 .abt-card span{font-size:11px;line-height:1.65;color:var(--muted)}
 .abt-note{margin-top:14px;border:1px solid #ffda8740;border-radius:12px;background:#ffda870d;padding:12px 14px;font-size:12px;line-height:1.8;color:#e7d6b4}
 .abt-note b{color:#ffda87}
+.abt-bili{display:block;margin-top:14px;padding:13px 15px;border-radius:12px;border:1px dashed #65ffe055;background:#65ffe00a;text-decoration:none;color:#cfe6e6;transition:.2s}
+.abt-bili b{display:block;color:#fff;font-size:13.5px;margin-bottom:5px}
+.abt-bili span{display:block;font-size:12.5px;line-height:1.75;color:#a9c2d0}
+.abt-bili .go{color:#65ffe0;font-weight:700;margin-top:7px}
+.abt-bili:hover{border-color:#65ffe0;background:#65ffe014}
 .abt-crow{display:flex;align-items:center;gap:10px;border:1px solid #65ffe020;border-radius:11px;background:#0f1a2c;padding:10px 12px;margin-top:8px;font-size:12.5px}
 .abt-crow .k{color:var(--muted);font-size:11px;width:46px;flex-shrink:0}
 .abt-crow a{color:var(--cyan);text-decoration:none;word-break:break-all}
@@ -48,7 +53,7 @@
 <section id="menu" class="panel"><div class="eyebrow">NEON SURVIVAL / 无限生存</div><h1>ECHO<span>RUN</span></h1><p class="subtitle">v4 战术突围 · 看清预警，选择目标，冒险争夺。</p><div class="feature-row"><span>自动锁敌</span><span>无限进化</span><span>每 5 波精英 · 每 10 波 BOSS</span></div><button id="startButton" class="primary">开始自由生存 <b>→</b></button><button id="dailyButton">每日固定种子 <small id="dailyDate"></small></button><p class="help">桌面 WASD / 方向键移动 · 空格冲刺（带无敌帧）· P / Esc 暂停<br>手机左摇杆移动 · 右侧冲刺 · 靠近晶体获取经验<br>狙击虚线锁定后有 0.8 秒闪避；橙色分裂兵死亡后生成小怪。<br>金圈内占领 3 秒获得经验和分数，不回血；离开会衰减。<br>第 4 波起可能出现蜂群、重装、狙击、分裂波。回血稀缺，靠走位与冲刺生存。</p><button id="aboutButton">🏮 关于开发者 · 打赏 · 玩法共建</button><div class="leaderboard"><h3>本机最高分榜 <span>非全球 · 仅此浏览器</span></h3><ol id="scores"></ol><p id="storageHint"></p></div></section>
 <section id="pausePanel" class="panel hidden"><div class="eyebrow">SIGNAL HELD</div><h2>暂时离线</h2><p>战场已暂停，喘口气再回来。</p><button id="resumeButton" class="primary">继续生存</button><button id="restartPause">重新开始本模式</button><button id="homePause">返回主菜单</button></section>
 <section id="upgradePanel" class="panel wide hidden"><div class="eyebrow">EVOLUTION AVAILABLE</div><h2>选择你的进化</h2><p>战场暂停中 · 三选一 · 数字键 1 / 2 / 3</p><div id="upgradeChoices"></div></section>
-<section id="endPanel" class="panel hidden"><div class="eyebrow">SIGNAL LOST</div><h2>回声仍在继续</h2><div id="endStats"></div><button id="restartEnd" class="primary">再来一局</button><button id="homeEnd">返回主菜单 / 本机榜</button><button id="aboutEnd">🏮 关于开发者 · 打赏 · 玩法共建</button>
+<section id="endPanel" class="panel hidden"><div class="eyebrow">SIGNAL LOST</div><h2>回声仍在继续</h2><div id="endStats"></div><button id="restartEnd" class="primary">再来一局</button><button id="homeEnd">返回主菜单 / 本机榜</button><button id="aboutEnd">🏮 关于开发者 · 打赏 · 玩法共建</button></section>
 <section id="aboutPanel" class="panel wide hidden">
   <div class="eyebrow">ABOUT · SUPPORT · CO-BUILD</div>
   <h2>关于开发者</h2>
@@ -67,7 +72,12 @@
       <div class="abt-card"><b>◈ 热爱游戏</b><span>一个人从零写完这个能在地铁上玩的霓虹生存。</span></div>
     </div>
     <div class="abt-note"><b>我的心愿：免费的关注，就是最大的鼓励。</b>如果这一局陪你熬过了加班后的十分钟，去 B 站点个关注就好；想打赏的话量力而行——喜欢白嫖，开发者也完全不介意。</div>
-    <div class="abt-crow"><span class="k">B 站</span><span>阿z的知识讲堂</span></div>
+    <a class="abt-bili" href="https://b23.tv/E9ZSgYS" target="_blank" rel="noopener">
+      <b>B 站「阿z的知识讲堂」实时更新</b>
+      <span>最新做出来的项目、网站更新日志，还有数学 / 物理 / AI 的学科知识讲解，都会第一时间发在空间里，比网站更新更早一步。</span>
+      <span class="go">点这里关注 → b23.tv/E9ZSgYS</span>
+    </a>
+    <div class="abt-crow"><span class="k">B 站</span><a href="https://b23.tv/E9ZSgYS" target="_blank" rel="noopener">阿z的知识讲堂（点我关注）</a></div>
     <div class="abt-crow"><span class="k">微信</span><span>见「玩法共建」页二维码</span></div>
     <div class="abt-crow"><span class="k">GitHub</span><a href="https://github.com/azdezhishijiangtang" target="_blank" rel="noopener">github.com/azdezhishijiangtang</a></div>
     <div class="abt-actions"><button data-atab="donate">打赏开发者</button><button data-atab="build">玩法共建</button></div>
