@@ -159,7 +159,12 @@ const upgrades=[
   ,{name:'闪避余波',icon:'❈',desc:'极限闪避时释放冲击波，对附近敌人造成 60 伤害。',ok:p=>p.dodgeBurst<1,apply:p=>p.dodgeBurst=1}
 ];
 function resize(){width=innerWidth||document.documentElement.clientWidth||document.body.clientWidth||1280;height=innerHeight||document.documentElement.clientHeight||document.body.clientHeight||720;const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);scale=clamp(Math.min(width/850,height/650),.64,1.25);}
-function resetInput(){keys.clear();joy.x=joy.y=0;joy.id=null;$('stick').style.transform='translate(0px,0px)';}
+function resetInput(){
+  // 先释放指针捕获：否则暂停/切后台后部分 Android 浏览器仍持有该 pointer，
+  // 不会派发新的 pointerdown，摇杆会「粘住」失效。
+  if(joy.id!==null){try{const el=$('joystick');if(el.hasPointerCapture&&el.hasPointerCapture(joy.id))el.releasePointerCapture(joy.id);}catch(_){}}
+  keys.clear();joy.x=joy.y=0;joy.id=null;$('stick').style.transform='translate(0px,0px)';
+}
 function panel(name){$('overlay').classList.toggle('hidden',!name);for(const id of ['menu','pausePanel','upgradePanel','endPanel','aboutPanel'])$(id).classList.toggle('hidden',id!==name);$('footer').classList.toggle('hidden',name!=='menu');}
 function notify(text){$('toast').textContent=text;$('toast').classList.add('show');toastTimer=3;}
 function circleRect(x,y,r,o){return Math.hypot(x-clamp(x,o.x,o.x+o.w),y-clamp(y,o.y,o.y+o.h))<r;}
